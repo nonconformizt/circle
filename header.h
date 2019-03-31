@@ -19,8 +19,6 @@ using namespace std;
 #define START_X (WINDOW_WIDTH / 2)
 #define START_Y (WINDOW_HEIGHT / 2)
 #define RADIUS 40
-#define SPEED 10.0
-
-void SDL_DrawCircle(SDL_Renderer *Renderer, int32_t _x, int32_t _y, int32_t radius);
+#define SPEED 7.0
 
 bool SDL_Start(SDL_Window ** window, SDL_Renderer ** renderer);
