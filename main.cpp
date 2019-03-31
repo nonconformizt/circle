@@ -15,6 +15,8 @@ int main(int argc, char ** argv) {
            x_vel = 0,
            y_vel = 0;
 
+    Circle circle(rend);
+
     while (!close) {
         auto begin = chrono::high_resolution_clock::now();
         while (SDL_PollEvent(&e))
@@ -23,18 +25,12 @@ int main(int argc, char ** argv) {
             else if ( e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_p )
                 pause = true;
 
-
         SDL_SetRenderDrawColor( rend, 0, 0, 0, 0 );
         SDL_RenderClear( rend );
 
-        x += x_vel;
-        y += y_vel;
-
         SDL_SetRenderDrawColor( rend, 255, 255, 255, 0 );
-        SDL_DrawCircle( rend, int(x), int(y), RADIUS );
+        circle.next_frame();
         SDL_RenderPresent( rend );
-
-        
 
         auto end = chrono::high_resolution_clock::now();
         auto dur = end - begin;
